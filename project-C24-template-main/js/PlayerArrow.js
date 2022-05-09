@@ -15,23 +15,24 @@ class PlayerArrow {
   
   //create a shoot function
  shoot(archerAngle){
-   ArcherAngle +=90;
-   this.velocity = p5.Vector.fromAngle(archerAngle*(3.14/180)
+   archerAngle +=90;
+   this.velocity = p5.Vector.fromAngle(archerAngle*(3.14/180));
    
    this.velocity.mult(0.5)
    
-   Matter .Body.setVelocity(this.body,{
-     x: this.velocity.x*(180/3.14)
+   Matter.Body.setVelocity(this.body,{
+     x: this.velocity.x*(180/3.14),
      y: this.velocity.y*(180/3.14)
    })
 
-   Matter .Body.setStatic(this.body, false);
+   Matter.Body.setStatic(this.body, false);
 
-   if(keyCode === 32){
-    playerArrows.shoot(playerArcher.body.angle); 
+    
  }
  
-}
+ 
+
+ 
 
 
   display() {
@@ -46,4 +47,7 @@ class PlayerArrow {
     image(this.image, 0, 0, this.width, this.height);
     pop();
   }
+
+  
 }
+

@@ -39,6 +39,9 @@ function setup() {
     120,
     120
   );
+  arrow=new PlayerArrow(
+    playerArcher.body.position.x, playerArcher.body.position.y, 100,10
+  )
 
   
   
@@ -52,12 +55,16 @@ function draw() {
   image(playerimage,player.position.x,player.position.y,50,180)
 
   playerArcher.display();
-
+  arrow.display()
   // Title
   fill("#FFFF");
   textAlign("center");
   textSize(40);
   text("EPIC ARCHERY", width / 2, 100);
+
+  if(keyCode === 32){
+    arrow.shoot(playerArcher.body.angle);
+  }
 }
 
 
